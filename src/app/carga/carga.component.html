@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+      Lista de Cargas </div>
+    <div class="card-body">
+       
+          <a class="nav-link"  routerLink="/cargas/guardar"><i class="fas fa-plus-circle"></i> Nueva Carga</a>
+     <br>
+        
+      <table class="table caption-top">
+        <caption></caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">CODIGO</th>
+            <th scope="col">PESO</th>
+            <th scope="col">CARACTERISTICAS</th>
+            <th scope="col" class="text-center">ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let carga of cargas">
+            <td>{{carga.idCarga}}</td>
+            <td>{{carga.codigo}}</td>
+            <td>{{carga.peso}}</td>
+            <td>{{carga.caracteristicas}}</td>
+            <td class="text-center">
+                <button class="btn btn-outline-primary" routerLink="/cargas/detalle/{{carga.idCarga}}" style="margin-left : 10px;"><i class="far fa-eye"></i> Ver</button>
+                <button class="btn btn-outline-warning" routerLink="/cargas/editar/{{carga.idCarga}}" style="margin-left : 10px;"><i class="far fa-edit"></i> Editar</button>
+                <button class="btn btn-outline-danger" (click)="borrar(carga.idCarga)" style="margin-left : 10px;"><i class="far fa-trash-alt"></i> Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
